@@ -7,6 +7,10 @@ TagManager:
   - PLAYER
   - GAMEMANAGER
   - CLOUD
+  - DARKCLOUD
+  - RAINBOW
+  - FOG
+  - BALLOON
   layers:
   - Default
   - TransparentFX

@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3476055454515897878}
   - component: {fileID: 3476055454515897881}
   - component: {fileID: 5118304703658877960}
+  - component: {fileID: 701955181117294456}
   m_Layer: 0
-  m_Name: Cloud
-  m_TagString: CLOUD
+  m_Name: Balloon
+  m_TagString: BALLOON
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.024959564, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -95,7 +96,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 3476055454515897876}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: b435581f1dd383140a2f50171b0e7274, type: 2}
+  m_Material: {fileID: 6200000, guid: 862ff591bc55e5e4e965564999dd71ee, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -125,3 +126,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destoryCloudDif: 11
+--- !u!114 &701955181117294456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3476055454515897876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 155d975c9e4e3044984641294fcad6b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

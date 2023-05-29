@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 3476055454515897881}
   - component: {fileID: 5118304703658877960}
   m_Layer: 0
-  m_Name: Cloud
-  m_TagString: CLOUD
+  m_Name: Rainbow
+  m_TagString: RAINBOW
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.96027267, b: 0.11792451, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -95,7 +95,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 3476055454515897876}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: b435581f1dd383140a2f50171b0e7274, type: 2}
+  m_Material: {fileID: 6200000, guid: f858cb4e793d4c74aab250cb2a29085c, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

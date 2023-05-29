@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.SceneManagement;
 
 [AddComponentMenu("Player")]
 public class Player : MonoBehaviour
@@ -38,12 +39,19 @@ public class Player : MonoBehaviour
     void Update()
     {
         
-    }
+    }  
 
     private void FixedUpdate()
     {
         MoveToMouse();
         RestrictPosition();
+
+        // 플레이어의 Y 좌표가 바닥으로 떨어지면
+        if (transform.position.y <= -5)
+        {
+            //게임 오버
+            GameOver();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -55,7 +63,34 @@ public class Player : MonoBehaviour
                 _rigid.velocity =
                     new Vector2(
                         _rigid.velocity.x, 
-                        Vector2.up.y * Time.deltaTime * jumpScale * 100
+                        Vector2.up.y * Time.deltaTime * jumpScale * 110
+                    );
+                break;
+
+            case "BALLOON":
+                _rigid.velocity =
+                    new Vector2(
+                        _rigid.velocity.x,
+                        Vector2.up.y * Time.deltaTime * jumpScale * 110
+                    );
+                break;
+
+            case "FOG":
+                _rigid.velocity =
+                    new Vector2(
+                        _rigid.velocity.x,
+                        Vector2.up.y * Time.deltaTime * jumpScale * 110
+                    );
+                //안개를 밟았을때 제거
+                Destroy(col.gameObject);
+                break;
+
+            //레인보우 밟았을때 점프 부스트
+            case "RAINBOW":
+                _rigid.velocity =
+                    new Vector2(
+                        _rigid.velocity.x,
+                        Vector2.up.y * Time.deltaTime * jumpScale * 220
                     );
                 break;
         }
@@ -95,5 +130,13 @@ public class Player : MonoBehaviour
                     z = 0
                 };
         }
+    }
+
+    //게임 오버 함수
+    private void GameOver()
+    {
+        Debug.Log("게임 오버 재시작");
+        //게임 씬 다시 시작
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

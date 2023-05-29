@@ -454,7 +454,7 @@ GameObject:
   - component: {fileID: 1145066678}
   - component: {fileID: 1145066679}
   m_Layer: 0
-  m_Name: CloudManager
+  m_Name: ObjectManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -488,7 +488,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cloudGameObject: {fileID: 3476055454515897876, guid: e009291c095583f4e9ad5151cfe2f266, type: 3}
-  distanceBetweenCloudGameObject: 2
+  darkCloudGameObject: {fileID: 3476055454515897876, guid: df6754d92c02898499382f24dd03746c, type: 3}
+  rainbowGameObject: {fileID: 3476055454515897876, guid: b5b6b5dcfd2e9d34c8934796e6bb5c65, type: 3}
+  fogGameObject: {fileID: 3476055454515897876, guid: a7be499e0f68c4e49b43f24a1d0281c3, type: 3}
+  balloonGameObject: {fileID: 3476055454515897876, guid: 2431a82a5a82d704d8c9255d1ce856c2, type: 3}
+  distanceBetweenGameObject: 3
 --- !u!1 &1884500481
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,6 +552,10 @@ PrefabInstance:
     - target: {fileID: 3476055454515897879, guid: e009291c095583f4e9ad5151cfe2f266, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476055454515897879, guid: e009291c095583f4e9ad5151cfe2f266, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3476055454515897879, guid: e009291c095583f4e9ad5151cfe2f266, type: 3}
       propertyPath: m_LocalPosition.x
