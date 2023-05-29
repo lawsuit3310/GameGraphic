@@ -11,14 +11,15 @@ TagManager:
   - RAINBOW
   - FOG
   - BALLOON
+  - DANGERS
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - FLATFORM
   - Water
   - UI
-  - 
+  - DANGERS
   - 
   - 
   - 

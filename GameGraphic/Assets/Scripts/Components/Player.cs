@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     private static Rigidbody2D _rigid;
+    private static Collider2D _col;
 
     [SerializeField] private float jumpScale = 1;
     [SerializeField] private float speed = 1;
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
         try
         {
             _rigid = GetComponent<Rigidbody2D>();
+            _col = GetComponent<Collider2D>();
         }
         catch (Exception e)
         {
@@ -56,7 +58,6 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log("충돌");
         switch (col.gameObject.tag)
         {
             case "CLOUD" :
@@ -66,7 +67,6 @@ public class Player : MonoBehaviour
                         Vector2.up.y * Time.deltaTime * jumpScale * 110
                     );
                 break;
-
             case "BALLOON":
                 _rigid.velocity =
                     new Vector2(
@@ -74,7 +74,6 @@ public class Player : MonoBehaviour
                         Vector2.up.y * Time.deltaTime * jumpScale * 110
                     );
                 break;
-
             case "FOG":
                 _rigid.velocity =
                     new Vector2(
@@ -84,7 +83,6 @@ public class Player : MonoBehaviour
                 //안개를 밟았을때 제거
                 Destroy(col.gameObject);
                 break;
-
             //레인보우 밟았을때 점프 부스트
             case "RAINBOW":
                 _rigid.velocity =
@@ -92,6 +90,9 @@ public class Player : MonoBehaviour
                         _rigid.velocity.x,
                         Vector2.up.y * Time.deltaTime * jumpScale * 220
                     );
+                break;
+            case "DANGERS":
+                GameOver();
                 break;
         }
     }
@@ -130,6 +131,9 @@ public class Player : MonoBehaviour
                     z = 0
                 };
         }
+        
+        //플레이어가 점프 중 일땐 구름과 충돌하지 않도록 처리
+        _col.isTrigger = _rigid.velocity.y > 0;
     }
 
     //게임 오버 함수

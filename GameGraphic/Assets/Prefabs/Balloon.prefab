@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3476055454515897881}
   - component: {fileID: 5118304703658877960}
   - component: {fileID: 701955181117294456}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Balloon
   m_TagString: BALLOON
   m_Icon: {fileID: 0}
@@ -138,3 +138,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155d975c9e4e3044984641294fcad6b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  distance: 4
