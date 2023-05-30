@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 845982370}
-  chasingSpd: 50
+  chasingSpd: 40
   chasingCefficient: 0.45
 --- !u!4 &826317206
 Transform:
@@ -641,6 +641,7 @@ MonoBehaviour:
   rainbowGameObject: {fileID: 3476055454515897876, guid: b5b6b5dcfd2e9d34c8934796e6bb5c65, type: 3}
   fogGameObject: {fileID: 3476055454515897876, guid: a7be499e0f68c4e49b43f24a1d0281c3, type: 3}
   balloonGameObject: {fileID: 3476055454515897876, guid: 2431a82a5a82d704d8c9255d1ce856c2, type: 3}
+  arrowGameObject: {fileID: 7852574933491176276, guid: 37b5ccbf8fe3d304cba0048db1c5eecb, type: 3}
   distanceBetweenGameObject: 3
 --- !u!1 &1884500481
 GameObject:

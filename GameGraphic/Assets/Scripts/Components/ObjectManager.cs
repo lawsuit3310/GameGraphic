@@ -20,6 +20,9 @@ public class ObjectManager : MonoBehaviour
     //풍선
     [SerializeField] private GameObject balloonGameObject;
 
+    //화살
+    [SerializeField] private GameObject arrowGameObject;
+
     //이전에 스폰된 구름 기록 저장용
     private GameObject previousCloud;
 
@@ -29,7 +32,7 @@ public class ObjectManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        StartCoroutine(SpawnArrow());
     }
 
     // Update is called once per frame
@@ -38,8 +41,8 @@ public class ObjectManager : MonoBehaviour
         //랜덤 소환 값
         int randomvalue = Random.Range(0, 100);
 
-        // (ObjectManager의 y값)이 (플레이어 y값 + 오브젝트 간격)보다 낮을 경우 ObjectManager의 y좌표를 위로 올리고 오브젝트 소환
-        if (transform.position.y < GameManager.Instance.player.transform.position.y + distanceBetweenGameObject)
+        // (ObjectManager의 y값)이 (플레이어 y값 + 오브젝트 간격 + 조정 수치)보다 낮을 경우 ObjectManager의 y좌표를 위로 올리고 오브젝트 소환
+        if (transform.position.y < GameManager.Instance.player.transform.position.y + distanceBetweenGameObject + 5)
         {
             transform.position = new Vector2(Random.Range(-8.0f,8.0f), (transform.position.y) + distanceBetweenGameObject);
 
@@ -86,5 +89,19 @@ public class ObjectManager : MonoBehaviour
                 previousCloud = cloudGameObject;
             }
         }
+    }
+
+    IEnumerator SpawnArrow()
+    {
+        // 화살 스폰
+        yield return new WaitForSeconds(Random.Range(6.0f,6.0f));
+        Instantiate(arrowGameObject,
+            new Vector2(
+                GameManager.Instance.player.gameObject.transform.position.x,
+                GameManager.Instance.player.gameObject.transform.position.y-12),
+            transform.rotation
+            );
+        StartCoroutine(SpawnArrow());
+
     }
 }

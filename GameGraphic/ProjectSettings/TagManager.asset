@@ -12,6 +12,7 @@ TagManager:
   - FOG
   - BALLOON
   - DANGERS
+  - ARROW
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Water
   - UI
   - DANGERS
-  - 
+  - PLAYERCOL
   - 
   - 
   - 

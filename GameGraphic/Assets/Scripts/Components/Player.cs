@@ -96,7 +96,19 @@ public class Player : MonoBehaviour
                 break;
         }
     }
-
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        switch (col.gameObject.tag)
+        {
+            case "DARKCLOUD":
+                if (_rigid.velocity.y < 0)
+                    Destroy(col.gameObject);
+                break;
+            case "ARROW":
+                GameOver();
+                break;
+        }
+    }
     private void MoveToMouse()
     {
         var targetX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
