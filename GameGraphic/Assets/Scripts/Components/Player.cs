@@ -54,6 +54,9 @@ public class Player : MonoBehaviour
             //게임 오버
             GameOver();
         }
+
+        var score = (int)(transform.position.y / 3) - 1;
+        GameManager.score = score >= GameManager.score ? score : GameManager.score;
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -109,6 +112,7 @@ public class Player : MonoBehaviour
                 break;
         }
     }
+    
     private void MoveToMouse()
     {
         var targetX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
@@ -152,6 +156,7 @@ public class Player : MonoBehaviour
     private void GameOver()
     {
         Debug.Log("게임 오버 재시작");
+        GameManager.score = 0;
         //게임 씬 다시 시작
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

@@ -1,18 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIScript : MonoBehaviour
 {
+    [SerializeField] private TMP_Text scoreText;
     // Start is called before the first frame update
-    void Start()
+    // Update is called once per frame
+    private void Awake()
     {
-        
+        RenewalScoreText();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        RenewalScoreText();
+    }
+
+    public void RenewalScoreText()
+    {
+        scoreText.text = GameManager.score + "";
     }
 }
