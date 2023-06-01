@@ -4,33 +4,33 @@ using UnityEngine;
 
 public class Balloon : MonoBehaviour
 {
-    //ÀÌµ¿ ¼Óµµ
+    //ì´ë™ ì†ë„
     public float speed = 5f;
 
-    //ÀÌµ¿ °Å¸®
+    //ì´ë™ ê±°ë¦¬
     public float distance = 4f;
 
-    //ÀÌµ¿ ¹æÇâ
+    //ì´ë™ ë°©í–¥
     private float direction = 1f;
 
-    //Ç³¼± ÃÊ±â À§Ä¡
+    //í’ì„  ì´ˆê¸° ìœ„ì¹˜
     private Vector3 startPosition;
 
     // Start is called before the first frame update
     void Start()
     {
-        //Ç³¼± ÃÊ±â À§Ä¡ ÀúÀå
+        //í’ì„  ì´ˆê¸° ìœ„ì¹˜ ì €ìž¥
         startPosition = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //ÁÂ¿ì ÀÌµ¿ °è»ê
+        //ì¢Œìš° ì´ë™ ê³„ì‚°
         float moveAmount = direction * speed * Time.deltaTime;
         transform.Translate(moveAmount, 0f, 0f);
 
-        //Ç³¼±ÀÌ ÁöÁ¤ÇÑ °Å¸®¸¦ ³Ñ¾î°¥ °æ¿ì ¹Ý´ë ¹æÇâÀ¸·Î ÀÌµ¿
+        //í’ì„ ì´ ì§€ì •í•œ ê±°ë¦¬ë¥¼ ë„˜ì–´ê°ˆ ê²½ìš° ë°˜ëŒ€ ë°©í–¥ìœ¼ë¡œ ì´ë™
         if (Mathf.Abs(transform.position.x - startPosition.x) >= distance)
         {
             direction *= -1f;
