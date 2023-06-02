@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3476055454515897878}
   - component: {fileID: 3476055454515897881}
   - component: {fileID: 5118304703658877960}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Rainbow
   m_TagString: RAINBOW
   m_Icon: {fileID: 0}

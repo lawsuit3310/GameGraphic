@@ -518,7 +518,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -757,6 +757,9 @@ MonoBehaviour:
   fogGameObject: {fileID: 3476055454515897876, guid: a7be499e0f68c4e49b43f24a1d0281c3, type: 3}
   balloonGameObject: {fileID: 3476055454515897876, guid: 2431a82a5a82d704d8c9255d1ce856c2, type: 3}
   arrowGameObject: {fileID: 7852574933491176276, guid: 37b5ccbf8fe3d304cba0048db1c5eecb, type: 3}
+  item1GameObject: {fileID: 3476055454515897876, guid: 3c9d9f7b1fd259b4f86fa2adb0f42160, type: 3}
+  item2GameObject: {fileID: 3476055454515897876, guid: c5a8afe80b119f549965405081eebe32, type: 3}
+  item3GameObject: {fileID: 3476055454515897876, guid: abc0589f8c6826640a0033eb808ba43c, type: 3}
   distanceBetweenGameObject: 3
 --- !u!1 &1637802377
 GameObject:
