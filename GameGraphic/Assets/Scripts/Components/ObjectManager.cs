@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [AddComponentMenu("ObjectManager")]
 public class ObjectManager : MonoBehaviour
@@ -138,7 +140,7 @@ public class ObjectManager : MonoBehaviour
 				GameManager.Instance.player.gameObject.transform.position.x,
 				GameManager.Instance.player.gameObject.transform.position.y - 12),
 			transform.rotation
-			);
+			).transform.rotation = quaternion.RotateZ(180);
 		StartCoroutine(SpawnArrow());
 
 	}

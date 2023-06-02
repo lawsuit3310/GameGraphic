@@ -167,6 +167,11 @@ public class Player : MonoBehaviour
 		}
 	}
 
+	private void OnCollisionStay2D(Collision2D other)
+	{
+		OnCollisionEnter2D(other);
+	}
+
 	private void MoveToMouse()
 	{
 		var targetX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
