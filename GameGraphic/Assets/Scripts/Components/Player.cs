@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
 	//속도 부스트 지속 시간
 	private float speedBoostDuration = 5f;
 	//속도 부스트 타이머
-	private float speedBoostTimer;
+	public float speedBoostTimer;
 
 	//점프 높이
 	private float jumpHeight = 15f;
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
 	private bool isSpeedBoosted;
 
 	// 점프 사용 여부
-	private bool isJumpUsed = false;
+	public bool isJumpUsed = false;
 
 	private void Awake()
 	{

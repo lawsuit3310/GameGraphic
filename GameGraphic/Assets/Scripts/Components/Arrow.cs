@@ -6,7 +6,7 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     // 오브젝트 삭제 거리
-    [SerializeField] private float destoryCloudDif = 20;
+    [SerializeField] private float destoryArrowDif = 20;
 
     public float time = 0;
 
@@ -15,13 +15,14 @@ public class Arrow : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        transform.eulerAngles = new Vector3(0,0,270);
     }
 
     // Update is called once per frame
     void Update()
     {
         // (오브젝트의 y값 + 오브젝트 삭제 거리)가 (플레이어 y값)보다 낮을 경우 오브젝트 삭제
-        if (transform.position.y + destoryCloudDif < GameManager.Instance.player.transform.position.y)
+        if (transform.position.y + destoryArrowDif < GameManager.Instance.player.transform.position.y)
             Destroy(gameObject);
     }
 
@@ -34,6 +35,11 @@ public class Arrow : MonoBehaviour
         }
         else
             rb.AddForce(Vector2.down, ForceMode2D.Impulse);
+
+        if (rb.velocity.y < 0)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 90);
+        }
     }
 
 }
