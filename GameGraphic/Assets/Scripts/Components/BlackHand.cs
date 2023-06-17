@@ -14,10 +14,10 @@ public class BlackHand : MonoBehaviour
 	private static Rigidbody2D _rigid;
 	//기존 난이도 저장
 	private float startChasingCefficient;
-	//난이도 감소 지속 시간
-	private float reduceDifficultyDuration = 2f;
+    //난이도 감소 지속 시간
+    public static float reduceDifficultyDuration = 2f;
 	//난이도 감소 타이머
-	private float reduceDifficultyTimer;
+	public static float reduceDifficultyTimer;
 
 	//난이도가 감소 되었는지
 	private bool isReduceDifficulty;

@@ -5,7 +5,7 @@ using UnityEngine;
 [AddComponentMenu("Object")]
 public class Object : MonoBehaviour
 {
-    // ¿ÀºêÁ§Æ® »èÁ¦ °Å¸®
+    // ì˜¤ë¸Œì íŠ¸ ì‚­ì œ ê±°ë¦¬
     [SerializeField] private float destoryCloudDif = 11;
     // Start is called before the first frame update
     void Start()
@@ -16,7 +16,7 @@ public class Object : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // (¿ÀºêÁ§Æ®ÀÇ y°ª + ¿ÀºêÁ§Æ® »èÁ¦ °Å¸®)°¡ (ÇÃ·¹ÀÌ¾î y°ª)º¸´Ù ³·À» °æ¿ì ¿ÀºêÁ§Æ® »èÁ¦
+        // (ì˜¤ë¸Œì íŠ¸ì˜ yê°’ + ì˜¤ë¸Œì íŠ¸ ì‚­ì œ ê±°ë¦¬)ê°€ (í”Œë ˆì´ì–´ yê°’)ë³´ë‹¤ ë‚®ì„ ê²½ìš° ì˜¤ë¸Œì íŠ¸ ì‚­ì œ
         if (transform.position.y + destoryCloudDif < GameManager.Instance.player.transform.position.y)
             Destroy(gameObject);
     }

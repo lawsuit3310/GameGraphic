@@ -41,10 +41,10 @@ public class ObjectManager : MonoBehaviour
 	private GameObject previousObject;
 
 
-	// Start is called before the first frame update
-	void Start()
+    // Start is called before the first frame update
+    void Start()
 	{
-		StartCoroutine(SpawnArrow());
+        StartCoroutine(SpawnArrow());
 	}
 
 
@@ -133,9 +133,12 @@ public class ObjectManager : MonoBehaviour
 
 	IEnumerator SpawnArrow()
 	{
-		// 화살 스폰
-		yield return new WaitForSeconds(Random.Range(6.0f, 6.0f));
-		Instantiate(arrowGameObject,
+        // 화살 스폰, 1초 전에 소리 재생
+        yield return new WaitForSeconds(5f);
+		SoundManager.instance.PlayArrowSound();
+        yield return new WaitForSeconds(1f);
+
+        Instantiate(arrowGameObject,
 			new Vector2(
 				GameManager.Instance.player.gameObject.transform.position.x,
 				GameManager.Instance.player.gameObject.transform.position.y - 12),

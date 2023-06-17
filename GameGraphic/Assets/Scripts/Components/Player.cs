@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
 	//기존 속도 저장
 	private float startSpeed;
 	//속도 부스트 지속 시간
-	private float speedBoostDuration = 5f;
+	public float speedBoostDuration = 5f;
 	//속도 부스트 타이머
 	public float speedBoostTimer;
 
@@ -63,9 +63,11 @@ public class Player : MonoBehaviour
 	{
 		if (isJumpUsed == true)
 		{
-			if (Input.GetKeyDown(KeyCode.Space))
+			if (Input.GetMouseButtonDown(0))
 			{
-				JumpPhysics();
+                SoundManager.instance.PlayJumpSound();
+                _anim.SetTrigger("IsJumping");
+                JumpPhysics();
 				isJumpUsed = false;
 			}
 		}
@@ -99,8 +101,8 @@ public class Player : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D col)
 	{
-		
-		_anim.SetTrigger("IsJumping");
+        SoundManager.instance.PlayJumpSound();
+        _anim.SetTrigger("IsJumping");
 		switch (col.gameObject.tag)
 		{
 			case "CLOUD":

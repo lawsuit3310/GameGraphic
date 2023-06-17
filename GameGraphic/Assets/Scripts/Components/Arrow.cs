@@ -5,10 +5,10 @@ using UnityEngine;
 [AddComponentMenu("Arrow")]
 public class Arrow : MonoBehaviour
 {
-    // ¿ÀºêÁ§Æ® »èÁ¦ °Å¸®
+    // ì˜¤ë¸Œì íŠ¸ ì‚­ì œ ê±°ë¦¬
     [SerializeField] private float destoryArrowDif = 20;
 
-    public float time = 0;
+    float time = 0;
 
     Rigidbody2D rb;
     // Start is called before the first frame update
@@ -21,7 +21,7 @@ public class Arrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // (¿ÀºêÁ§Æ®ÀÇ y°ª + ¿ÀºêÁ§Æ® »èÁ¦ °Å¸®)°¡ (ÇÃ·¹ÀÌ¾î y°ª)º¸´Ù ³·À» °æ¿ì ¿ÀºêÁ§Æ® »èÁ¦
+        // (ì˜¤ë¸Œì íŠ¸ì˜ yê°’ + ì˜¤ë¸Œì íŠ¸ ì‚­ì œ ê±°ë¦¬)ê°€ (í”Œë ˆì´ì–´ yê°’)ë³´ë‹¤ ë‚®ì„ ê²½ìš° ì˜¤ë¸Œì íŠ¸ ì‚­ì œ
         if (transform.position.y + destoryArrowDif < GameManager.Instance.player.transform.position.y)
             Destroy(gameObject);
     }
