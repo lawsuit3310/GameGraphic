@@ -31,7 +31,7 @@ public class Te : MonoBehaviour
                 _margin += (4f * _direction * Time.deltaTime);
                 this.transform.position = new Vector3()
                 {
-                    x = -15 + Player.transform.position.x,
+                    x = -9.5f + Player.transform.position.x,
                     y = Player.transform.position.y + _margin,
                     z = this.transform.position.z
                 };

@@ -9,6 +9,8 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
 	private static Rigidbody2D _rigid;
+	private static SpriteRenderer _sprite;
+	private static Animator _anim;
 	private static Collider2D _col;
 
 	[SerializeField] private float jumpScale = 1;
@@ -39,14 +41,14 @@ public class Player : MonoBehaviour
 		{
 			_rigid = GetComponent<Rigidbody2D>();
 			_col = GetComponent<Collider2D>();
+			_sprite = GetComponent<SpriteRenderer>();
+			_anim = GetComponent<Animator>();
 		}
 		catch (Exception e)
 		{
 			Debug.LogError(e.Message);
 			throw;
 		}
-
-		Debug.Log(_rigid.gameObject.name);
 	}
 
 	// Start is called before the first frame update
@@ -87,13 +89,18 @@ public class Player : MonoBehaviour
 			//타이머 시작
 			BoostSpeedOverTime();
 		}
+		
+		_sprite.flipX = _rigid.velocity.x < 0;
+		_anim.SetBool("IsFalling", _rigid.velocity.y < 0.5f);
 
-		var score = (int)(transform.position.y / 3) - 1;
+		var score = (int)(transform.position.y / 3) - 1; 
 		GameManager.score = score >= GameManager.score ? score : GameManager.score;
 	}
 
 	private void OnCollisionEnter2D(Collision2D col)
 	{
+		
+		_anim.SetTrigger("IsJumping");
 		switch (col.gameObject.tag)
 		{
 			case "CLOUD":
@@ -174,7 +181,9 @@ public class Player : MonoBehaviour
 
 	private void MoveToMouse()
 	{
-		var targetX = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
+		var targetX = Camera.main.ScreenToWorldPoint(
+			new Vector3(
+				Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z)).x;
 		var pos = this.transform.position;
 		// 마우스 좌표에서 플레이어 좌표를 빼서 차를 저장하는 변수
 		var coefficient = targetX - pos.x;
@@ -264,7 +273,6 @@ public class Player : MonoBehaviour
 	//*게임 오버 함수
 	private void GameOver()
 	{
-		Debug.Log("게임 오버 재시작");
 		GameManager.score = 0;
 		//게임 씬 다시 시작
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
