@@ -26,15 +26,15 @@ public class StoryController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (video.time >= 4.7f && video.time <= 4.8f)
+        if (video.time is >= 4.7f and <= 4.8f)
         {
             video.Pause();
             video.time = 4.82f;
         }
-        else if (video.time >= 7.7f && video.time <= 7.8f)
+        else if (video.time is >= 7.7f and <= 7.8f)
         {
             video.Pause();
-            video.time = 7.81f;
+            video.time = 7.83f;
         }
 
         if (Input.GetMouseButton(0))
