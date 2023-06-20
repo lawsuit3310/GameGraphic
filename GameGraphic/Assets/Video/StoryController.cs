@@ -40,7 +40,7 @@ public class StoryController : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             if (isDone)
-                SceneManager.LoadScene(1);
+                SceneController.LoadScene("Game");
             else if (video.isPaused)
             {
                 video.Play();

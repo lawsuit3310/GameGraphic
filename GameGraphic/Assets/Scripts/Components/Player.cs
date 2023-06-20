@@ -54,6 +54,7 @@ public class Player : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
+		GameManager.score = 0;
 		//기존 속도 저장
 		startSpeed = speed;
 	}
@@ -275,8 +276,7 @@ public class Player : MonoBehaviour
 	//*게임 오버 함수
 	private void GameOver()
 	{
-		GameManager.score = 0;
 		//게임 씬 다시 시작
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		SceneController.LoadScene("GameOver");
 	}
 }
